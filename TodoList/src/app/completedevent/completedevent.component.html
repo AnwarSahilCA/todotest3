@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">Your Brand</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li>
+          <div>
+            <button class="btn btn-outline-dark" (click)="toCompleted()">Completed Events</button>
+            <button class="btn btn-outline-dark" (click)="toPending()">PendingEvents</button>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Services
+          </a>
+          <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <a class="dropdown-item" href="#">Service 1</a>
+            <a class="dropdown-item" href="#">Service 2</a>
+            <a class="dropdown-item" href="#">Service 3</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+    <table class="table table-hover">
+        <thead>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Deadline</th>
+          <th>Descrpiton</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+          
+            <tr id="tab" *ngFor="let i of events">
+                <td id ="t1">{{i.eventId}}</td>
+                <td id ="t2">{{i.title}}</td>
+                <td id ="t3">{{i.deadline}}</td>
+                <td id ="t4">{{i.description}}</td>
+                <td>{{i.status}}</td>
+          </tr>
+        </tbody>
+        
+        
+      </table>
+
+

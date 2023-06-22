@@ -1,0 +1,107 @@
+
+.mdc-data-table__table {
+  min-width: 70%;
+  border: 0;
+  white-space: nowrap;
+  border-spacing: 0;
+  table-layout: fixed;
+} 
+
+/* .ng-star-inserted{
+  padding-bottom: 30px;
+
+} */
+
+/* .buttonc{
+  display: flex;
+  justify-content: center;
+}  */
+ /* .buttonc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+} */
+/*
+.but {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*/
+/* .grayed-out {
+  color: gray;  
+ }
+
+
+ .active {
+  color: black; 
+ }  */
+ mat-table {
+  border: 1px solid #ccc;
+  border-collapse:collapse;
+}
+.ng-star-inserted{
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+
+}
+
+mat-header-cell
+{
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-right: none;
+}
+mat-cell {
+  border-right: none;
+}
+
+mat-header-row,
+mat-row {
+  border-bottom: 1px solid #ccc;
+}
+
+mat-row:last-child {
+  border-bottom: none;
+}
+
+mat-cell:last-child,
+mat-header-cell:last-child {
+  border-right: none;
+}
+.buttonc{
+  padding-top: 10%;
+  vertical-align: -20%;
+}
+.mat-mdc-form-field {
+  --mat-mdc-form-field-floating-label-scale: 0.75;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 70%;
+  padding-left: 300px;
+}
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+
+.progress-bar {
+  width: 200px;
+  height: 25px;
+  background-color: #222;
+}
+
+.progress-bar-fill {
+  background-color: #5F5;
+  height: 100%; /* This is important */
+}
+
+
+
+ 

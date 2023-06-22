@@ -1,0 +1,210 @@
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" [ngStyle]="{'width.%': progress * 100}" [attr.aria-valuenow]="progress" aria-valuemin="0" [attr.aria-valuemax]="total"></div>
+</div>
+
+<!-- 
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+  
+
+</mat-drawer-container> -->
+<!-- <div class="progress-bar">
+  <div class="progress-bar-fill" [ngStyle]="{'width.%': progress * 100}"></div>
+</div> -->
+  
+  <!-- <mat-toolbar class="navbar" color="primary">
+    <div class="navbar-container">
+      <button mat-button routerLink="/" routerLinkActive="active">Home</button>
+      <button mat-button routerLink="/about" routerLinkActive="active">About</button>
+      <button mat-button routerLink="/contact" routerLinkActive="active">Contact</button>
+    </div>
+  </mat-toolbar> -->
+<div>
+    <button class="btn btn-outline-dark" (click)="toCompleted()">Completed Events</button>
+    <button class="btn btn-outline-dark" (click)="toPending()">PendingEvents</button>
+  </div>
+  <div class="example-container-mat-elevation-z8">
+    <div class="example-header">
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+  </div>
+
+<mat-table #table [dataSource]="dataSource" color="primary"  matSort >
+
+   <!-- Position Column  -->
+   
+   <ng-container matColumnDef="event_id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> id </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.eventId}} </mat-cell>
+  </ng-container>  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.title}} </mat-cell>
+  </ng-container>
+
+   <!-- Name Column  -->
+  <ng-container matColumnDef="deadline">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> deadline </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.deadline}} </mat-cell>
+  </ng-container>
+
+   <!-- Weight Column  -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> description </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{product.description}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef > Status </mat-header-cell>
+    <mat-cell *matCellDef="let product"> <button mat-icon-button class="mat-button-custom" (click)="updatestatus(product.eventId,product)" [ngClass]="{'active': isIconActive}">
+      <mat-icon svgIcon="check" aria-hidden="false" aria-label="Example thumbs up SVG icon" class="bt"></mat-icon>
+      <div *ngIf="product.showcheck">
+      <mat-icon svgIcon="check" aria-hidden="false" aria-label="Example thumbs up SVG icon" [ngClass]="{'grayed-out': !isIconActive}" class="bt"></mat-icon></div>
+    </button>
+    <button mat-icon-button color="warn">
+      <mat-icon svgIcon="cross" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+    
+    
+    </button> </mat-cell>
+  </ng-container>
+  
+ <ng-container matColumnDef="comments">
+    <mat-header-cell *matHeaderCellDef> Comments</mat-header-cell>
+    <mat-cell *matCellDef="let product"> <div class="matbutton"> <button  class="btn btn-outline-light" (click)="toggletextField(product)">Add Comment</button></div>
+
+      <div *ngIf="product.showTextField">
+        
+        
+        <br>
+        <br>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title"
+              id="modal-basic-title">
+              
+            </h4>
+            <button type="button" class="close"
+                aria-label="Close" (click)=
+                "modal.dismiss('Cross click')">Close
+        
+              <span aria-hidden="true">
+                
+              </span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                
+                <div class="input-group">
+                  
+        
+                  <div class="input-group-append">
+                    
+                                <form (ngSubmit)="onSubmit(product.eventId)">
+                                    <div class = 'form-group'>
+                                        <label for="">Enter Comment Description</label>
+                                        <input type="text" class="form-control" id="description"
+                                        [(ngModel)]="comment.description" name="description">
+                                        
+                                    </div>
+                                    <button class="btn btn-success" type="submit">Submit</button>
+                                </form>
+                  </div>
+                </div>
+              </div>
+                </form>
+          </div>
+               
+        
+          <div class="modal-footer">
+            <button type="button"
+              class="btn btn-outline-dark"
+              (click)="modal.close('Save click')">
+              Save
+            </button>
+          </div>
+        
+        </ng-template>
+       
+
+        <div class="buttonc">
+        <button class="btn btn-outline-light"
+          (click)="open(content)"><i class="bi bi-plus-circle-dotted"></i>
+          
+        </button>
+      </div>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </div>
+    </mat-cell>
+  </ng-container>   
+ 
+  
+     
+  
+
+   <!-- Symbol Column  -->
+ 
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+   <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</mat-table> 
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
